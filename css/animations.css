@@ -38,7 +38,6 @@
 .floating-service.service-c,
 .floating-service.service-f { animation: floatSoft 7.2s ease-in-out infinite 900ms; }
 .logo-track { animation: logoScroll 32s linear infinite; }
-.logo-marquee:hover .logo-track { animation-play-state: paused; }
 
 .reveal-item {
   opacity: 0;

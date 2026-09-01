@@ -8,6 +8,7 @@
   const brochureLinks = document.querySelectorAll("[data-brochure-request]");
   const serviceButtons = document.querySelectorAll("[data-service]");
   const serviceInputs = [...document.querySelectorAll('input[name="services"]')];
+  const serviceDropdown = document.querySelector(".service-multiselect");
 
   const chooseService = (serviceName) => {
     const input = serviceInputs.find((item) => item.value === serviceName);
@@ -81,6 +82,7 @@
       const contact = document.querySelector("#contact");
       const selectedService = button.dataset.service;
       const selectedInput = chooseService(selectedService);
+      if (serviceDropdown) serviceDropdown.open = true;
 
       if (message && selectedService && !message.value.trim()) {
         message.value = `I would like to know more about ${selectedService}.`;

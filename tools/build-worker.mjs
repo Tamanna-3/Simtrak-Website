@@ -27,7 +27,7 @@ const binaryFiles = [
   "assets/clients/esi-laundry.png",
   "assets/clients/storewise.png",
   "assets/clients/superprocure.png",
-  "assets/clients/garg-foundation.png",
+  "assets/clients/garg.png",
   "assets/clients/foreword.png",
   "assets/clients/inseeds.png",
   "assets/clients/fortale-living.png",

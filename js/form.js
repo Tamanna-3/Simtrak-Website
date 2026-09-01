@@ -15,6 +15,7 @@
   const serviceInputs = [...form.querySelectorAll('input[name="services"]')];
   const serviceField = form.querySelector("#service-field");
   const serviceError = form.querySelector("#service-error");
+  const serviceSummary = form.querySelector("#service-summary");
 
   const messages = {
     name: "Please enter your name.",
@@ -33,6 +34,16 @@
   };
 
   const getSelectedServices = () => serviceInputs.filter((input) => input.checked).map((input) => input.value);
+
+  const updateServiceSummary = () => {
+    if (!serviceSummary) return;
+    const selected = getSelectedServices();
+    serviceSummary.textContent = selected.length === 0
+      ? "Choose services"
+      : selected.length === 1
+        ? selected[0]
+        : `${selected.length} services selected`;
+  };
 
   const setServiceState = (showError) => {
     serviceField?.classList.toggle("has-error", showError);
@@ -61,9 +72,12 @@
 
   serviceInputs.forEach((input) => {
     input.addEventListener("change", () => {
+      updateServiceSummary();
       if (getSelectedServices().length) setServiceState(false);
     });
   });
+
+  updateServiceSummary();
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
