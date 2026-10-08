@@ -97,7 +97,10 @@
     if (servicesFailed) valid = false;
 
     if (!valid) {
-      if (status) status.textContent = "Please review the highlighted fields.";
+      if (status) {
+        status.textContent = "Please review the highlighted fields.";
+        status.className = "form-status is-error";
+      }
       firstInvalid?.focus();
       return;
     }
@@ -115,7 +118,10 @@
     ].join("\n");
 
     const url = `https://api.whatsapp.com/send/?phone=919555299371&text=${encodeURIComponent(enquiry)}&type=phone_number&app_absent=0`;
-    if (status) status.textContent = "Your enquiry is ready. WhatsApp will open so you can send it to Simtrak.";
+    if (status) {
+      status.textContent = "Your enquiry is ready. WhatsApp will open in a new tab.";
+      status.className = "form-status is-success";
+    }
     window.open(url, "_blank", "noopener,noreferrer");
   });
 })();
